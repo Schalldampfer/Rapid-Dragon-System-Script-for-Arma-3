@@ -1,0 +1,5 @@
+class cfgFunctions {
+	#include "functions\RD\fnc_rapidDragon.hpp" //Rapid Dragon System Scripts by Schalldämpfer 2023/4/24
+};
+
+#include "functions\RD\gui_rapidDragon.hpp" //Rapid Dragon System GUI by Schalldämpfer 2023/4/25
