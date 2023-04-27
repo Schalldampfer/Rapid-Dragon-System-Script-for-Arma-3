@@ -4,6 +4,8 @@ This script system implements a simplified Rapid Dragon system, a pallet system 
 A test mission (rapidDragon.Altis) included.
 2023/4/26 created by Schalldämpfer
 
+https://youtu.be/974Yxrm4dSI
+
 # License:
 Arma Public License Share Alike (APL-SA).
 http://www.bistudio.com/community/licenses/arma-public-license-share-alike
