@@ -89,7 +89,7 @@ while {_num > 0} do {
  _objID36arry pushBack (_num % 36);
  _num = floor (_num / 36);
 };
-private _strlist = "0123456789abcdefghijklmnopqrstuvwxyz";
+private _strlist = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 {_objID36arry set [_forEachIndex, _strlist select [_x,1]];} forEach _objID36arry;
 private _objID36str = _objID36arry joinString "";
 _container setVariable ["objID",_objID36str,false];
