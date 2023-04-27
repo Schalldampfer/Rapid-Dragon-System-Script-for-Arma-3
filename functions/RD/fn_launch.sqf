@@ -48,7 +48,7 @@ if (local _container) then { //Execute in local
 	//ToDo: Assign another target if Null or less than 6
 
 	//Wait a bit
-	sleep 10;
+	sleep 7;
 
 	// // Launching Sequence
 	private _fakeMissiles = _container getVariable ["visibleMissiles",[]];
