@@ -81,6 +81,7 @@ if (local _container) then { //Execute in local
 		deleteVehicle _fakeMissile;
 		
 		//Debug Marker on missile and target
+		/*
 		[_missile,_target] spawn {
 			params["_msl","_tgt"];
 			private _marker = createMarker [format["S_Tgt_%1",_tgt], getPos _tgt];
@@ -101,6 +102,7 @@ if (local _container) then { //Execute in local
 			deleteMarker _marker;
 			deleteMarker _marker2;
 		};
+		*/
 	
 		//List up Missiles
 		_missiles pushBack _missile;
