@@ -9,6 +9,8 @@
 	-direction is the where the missile is gonna come from.
 
 	NOTE: You may reuse this script in any of your missions or server, you may tweak this as you please and there's no need to credit me, as long as you don't claim it as yours.
+
+	Change 2023/4/30 : Change _pointOne and _pointTwo from Object to position3D
 */
 
 
@@ -16,8 +18,8 @@ _pointOne = param [0];
 _pointTwo = param [1];
 
 //Getting the altitudes
-_altitudeOne = ((getPosASL _pointOne) select 2);
-_altitudeTwo = ((getPosASL _pointTwo) select 2);
+_altitudeOne = _pointOne select 2;
+_altitudeTwo = _pointTwo select 2;
 
 //Getting the greatest and lowest of the two
 _greatest = [_altitudeOne,_altitudeTwo] call BIS_fnc_greatestNum;

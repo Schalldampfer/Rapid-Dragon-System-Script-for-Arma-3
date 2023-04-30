@@ -7,7 +7,7 @@
 */
 //if (isServer) then {systemChat _fnc_scriptName;};
 
-params [["_missile",objNull],["_target",objNull]];
+params [["_missile",objNull],["_target",[0,0,0]]];
 
 if (!local _missile) exitWith {}; //Execute in local
 
@@ -37,14 +37,14 @@ while {isNull missileTarget _missile} do { //Until missile's own guidance system
 	
 	//Calculate Target Direction & Pitch depending on status of homing
 	_dirTo = _missile getDir _target;
-	_pitchTo = [_missile,_target] call RapidDragon_fnc_pitchtoTgt;
+	_pitchTo = [getPos _missile,_target] call RapidDragon_fnc_pitchtoTgt;
 	//hintSilent format["Dir:%1  DirTo:%2 Pitch:%3 PitchTo:%4",_dir,_dirTo, _pitch, _pitchTo];
 	
 	if (_missile distance _target > 2.5 * _heightTo) then { //Cruising. follow terrain
 		_pitchTo = -45 * ((((_height-_heightTo)/_heightTo ) min 1) max -1);
  	} else { //Final Approach
 		_dirTo = _missile getDir _target;
-		_pitchTo = [_missile,_target] call RapidDragon_fnc_pitchtoTgt;
+		_pitchTo = [getPos _missile,_target] call RapidDragon_fnc_pitchtoTgt;
 	};
 	
 	//Adjust Direction

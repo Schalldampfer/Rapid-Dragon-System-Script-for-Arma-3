@@ -27,7 +27,7 @@ switch _mode do {
 	case 2: { //Main Console
 		//systemChat "Dialog Running";
 		
-		private _targets = _container getVariable ["missileTargets",[objNull,objNull,objNull,objNull,objNull,objNull]];
+		private _targets = _container getVariable ["missileTargets",[]];
 		
 		//Pallet Info
 		(_disp displayCtrl 1001) ctrlSetText format["Pallet %1", _container getVariable ["objID",getObjectID _container]];
@@ -44,9 +44,8 @@ switch _mode do {
 			_marker setMarkerColorLocal "ColorEAST";
 			_marker setMarkerTextLocal format["Target (Missile %1)",_i];
 			_marker setMarkerSizeLocal [0.5,0.5];
-			private _target = _targets select (_i-1);
-			if (!isNull _target) then {
-				_marker setMarkerPosLocal (getPos _target);
+			if (count _targets > _i-1) then {
+				_marker setMarkerPosLocal (_targets select (_i-1));
 			};
 		};
 		
@@ -73,16 +72,8 @@ switch _mode do {
 			
 			//Move Target
 			private _targets = _container getVariable ["missileTargets",[]];
-			private _target = _targets select _current;
-			if (isNull _target) then { //If target is deleted, create again
-				_target = "Land_Battery_F" createVehicle [0,0,0];
-				_target allowDamage false;
-				_target enableSimulationGlobal false;
-				_targets set [_current, _target];
-				_container setVariable ["missileTargets",_targets,true];
-				systemChat "Targeting issue detected. Report to the mission editor.";
-			};
-			_target setPos [round(_pos select 0), round(_pos select 1), 0];
+			_targets set [_current,[round(_pos select 0), round(_pos select 1), 0]];
+			_container setVariable ["missileTargets",_targets,true];
 			_ui_coordinate ctrlSetText (mapGridPosition _pos);
 			
 			//Move Marker

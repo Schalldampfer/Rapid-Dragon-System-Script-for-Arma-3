@@ -84,7 +84,7 @@ if (local _container) then { //Execute in local
 		/*
 		[_missile,_target] spawn {
 			params["_msl","_tgt"];
-			private _marker = createMarker [format["S_Tgt_%1",_tgt], getPos _tgt];
+			private _marker = createMarker [format["S_Tgt_%1",_tgt], _tgt];
 			_marker setMarkerShape "ICON";
 			_marker setMarkerType "hd_dot";
 			_marker setMarkerColor "ColorEAST";

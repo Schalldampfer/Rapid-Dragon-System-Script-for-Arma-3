@@ -59,12 +59,11 @@ if (isServer) then { //Global commands
 	} forEach _positions;
 	_container setVariable ["visibleMissiles",_fakeMissiles,true]; //Log Missiles
 	
-	//Create Invisible Targets
+	//Initiate Targets
 	private _targets = [];
 	for "_i" from 1 to 6 do {
-		_targets pushBack (createSimpleObject ["Land_Battery_F", [0,0,0]]);
+		_targets pushBack [0,0,0];
 	};
-	{_x allowDamage false; _x enableSimulationGlobal false;} forEach _targets;
 	_container setVariable ["missileTargets",_targets,true];
 	
 	
