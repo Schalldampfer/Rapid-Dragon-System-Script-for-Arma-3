@@ -93,8 +93,6 @@ if (local _container) then { //Execute in local
 			_marker2 setMarkerType "mil_triangle";
 			_marker2 setMarkerColor "ColorWEST";
 			while {alive _msl} do {
-				_marker setMarkerPos (getPos _tgt);
-				_marker setMarkerDir (getDir _tgt);
 				_marker2 setMarkerPos (getPos _msl);
 				_marker2 setMarkerDir (getDir _msl);
 				sleep .75;
