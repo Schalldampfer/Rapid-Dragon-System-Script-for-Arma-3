@@ -4,7 +4,7 @@
 
 	Usage:
 	private _disp = findDisplay 46 createDisplay 'RD_ui_Main_Dialog'; //Open Dialog
-	[2,_target,_disp] spawn RapidDragon_fnc_dialog_control; //SetUp Dialog with RD pallet as _target
+	[2,_pallet,_disp] spawn RapidDragon_fnc_dialog_control; //SetUp Dialog with RD pallet as _pallet
 */
 params [["_mode",1],["_container",objNull],["_disp",objNull]];
 
