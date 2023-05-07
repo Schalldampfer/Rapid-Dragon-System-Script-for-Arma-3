@@ -11,6 +11,9 @@
 
 params [["_container",objNull],["_ammo","ammo_Missile_Cruise_01"]];
 
+if(_container getVariable ["RDinitialized",false]) exitWith {systemChat "Rapid Dragon is already initialized";};
+_container setVariable ["RDinitialized",true,false];
+
 if (isServer) then { //Global commands
 	//Initial Parameters
 	_container setVariable ["missileType",_ammo,true];
