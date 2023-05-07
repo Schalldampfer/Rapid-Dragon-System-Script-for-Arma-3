@@ -27,6 +27,14 @@ if (isServer) then { //Global commands
 			[0,1,-.4],
 			[-.5,1,-.4]
 		]};
+		case "ammo_Missile_Cruise_01_Air": {[
+			[0.4,1,.1],
+			[-.1,1,.1],
+			[-.6,1,.1],
+			[0.5,1,-.4],
+			[0,1,-.4],
+			[-.5,1,-.4]
+		]};
 		case "USAF_AGM158_LGB": {[
 			[0.5,0,.15],
 			[0,0,.15],
@@ -56,7 +64,7 @@ if (isServer) then { //Global commands
 	//Load fake Missiles
 	_fakeMissiles = [];
 	{
-		private _fakeMissile = createSimpleObject [_ammo,[0,0,0]];
+		private _fakeMissile = createSimpleObject [getText (configFile >> "CfgAmmo" >> _ammo >> "proxyShape"),[0,0,0]];
 		_fakeMissile attachTo [_container,_x];
 		_fakeMissiles pushBack _fakeMissile;
 	} forEach _positions;
