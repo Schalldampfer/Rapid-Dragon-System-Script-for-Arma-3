@@ -48,7 +48,7 @@ class RD_ui_Main_Dialog
 		class RD_ui_Background: RscPicture
 		{
 			idc = 1200;
-			text = "a3\structures_f\items\electronics\data\electronics_screens_laptop_co.paa"; //"#(argb,8,8,3)color(0.5,0.5,0.5,0.5)";
+			text = "a3\ui_f\data\igui\rsccustominfo\background_ca.paa"; //"#(argb,8,8,3)color(0.5,0.5,0.5,0.5)";
 			x = 0.304062 * safezoneW + safezoneX;
 			y = 0.247 * safezoneH + safezoneY;
 			w = 0.391875 * safezoneW;
