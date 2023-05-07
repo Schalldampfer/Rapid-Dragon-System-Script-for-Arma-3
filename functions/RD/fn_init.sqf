@@ -89,6 +89,15 @@ if (isServer) then { //Global commands
 		_this spawn RapidDragon_fnc_launch;
 	}];
 	
+	//ACE3 version for {["ace_cargoUnloaded", [_object, _vehicle, "paradrop"]] call CBA_fnc_globalEvent;}
+	if (!isNil 'CBA_fnc_addEventHandler') then {
+		["ace_cargoUnloaded", {
+			params["_cargo", "_parent", "_type"];
+			
+			//Launching Sequence
+			[_parent, _cargo] spawn RapidDragon_fnc_launch;
+		}] call CBA_fnc_addEventHandler;
+	};
 };
 
 //Create Tag
