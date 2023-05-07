@@ -1,7 +1,8 @@
 /*
 	Rapid Dragon System GUI Definition by Schalldämpfer 2023/4/25
 */
-/* #Soqeva
+/*
+#Soqeva
 $[
 	1.063,
 	["RapidDragonCruiseMissileControl",[[0,0,1,1],0.025,0.04,"GUI_GRID"],1,0,0],
