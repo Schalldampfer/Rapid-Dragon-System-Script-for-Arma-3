@@ -19,15 +19,16 @@ if (!(_vehicle isKindOf "Air") || getPos _vehicle select 2 < 1) exitWith {
 //Altitude check. Revert if too low
 if (getPos _vehicle select 2 < 500) exitWith {
 	systemChat "Too low to launch Rapid Dragon. Pallet returned to cargo bay";
-	sleep 1;
+	sleep 0.2;
+	private _para = nearestObject [_container, "B_Parachute_02_F"];
 	_vehicle setVehicleCargo _container;
+	if (!isNull _para) then {deleteVehicle _para;};
 };
 
-//Initialize Variables
-private _ammo = _container getVariable ["missileType","ammo_Missile_Cruise_01"];
-private _side = west;
-
-if (local _container) then { //Execute in local
+if (local _container) then { //Execute in local machine
+	//Initialize Variables
+	private _ammo = _container getVariable ["missileType","ammo_Missile_Cruise_01"];
+	private _side = west;
 
 	// // Initial Sequence
 

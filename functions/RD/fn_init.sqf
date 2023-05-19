@@ -93,9 +93,10 @@ if (isServer) then { //Global commands
 	if (!isNil 'CBA_fnc_addEventHandler') then {
 		["ace_cargoUnloaded", {
 			params["_cargo", "_parent", "_type"];
-			
-			//Launching Sequence
-			[_parent, _cargo] spawn RapidDragon_fnc_launch;
+			if (_cargo getVariable ["RDinitialized",false]) then {
+				//Launching Sequence
+				[_parent, _cargo] spawn RapidDragon_fnc_launch;
+			};
 		}] call CBA_fnc_addEventHandler;
 	};
 };
