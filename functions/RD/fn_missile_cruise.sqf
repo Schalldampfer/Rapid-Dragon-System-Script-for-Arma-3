@@ -21,7 +21,7 @@ private _pitch = _pitchBank select 0;
 private _bank = _pitchBank select 1;
 private _pitchTo = _pitch;
 private _height = getPosATL _missile select 2;
-private _heightTo = 100 + random (15);
+private _heightTo = 25 + random (5);
 
 //Homing to target
 while {isNull missileTarget _missile} do { //Until missile's own guidance system activates
