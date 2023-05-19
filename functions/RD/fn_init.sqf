@@ -77,18 +77,6 @@ if (isServer) then { //Global commands
 	};
 	_container setVariable ["missileTargets",_targets,true];
 	
-	
-	//Implement Launching Sequence. Assign Eventhandler on Unloading
-	_container addEventHandler ["CargoUnloaded", {
-		params ["_parent", "_cargo"];
-		//Remove Assigned Actions to _parent for this pallet
-		private _actions = _cargo getVariable ["RD_loadedAction",[]];
-		if (count _actions > 0) then {{_parent removeAction _x;} forEach _actions;};
-		
-		//Launching Sequence
-		_this spawn RapidDragon_fnc_launch;
-	}];
-	
 	//ACE3 version for {["ace_cargoUnloaded", [_object, _vehicle, "paradrop"]] call CBA_fnc_globalEvent;}
 	if (!isNil 'CBA_fnc_addEventHandler') then {
 		["ace_cargoUnloaded", {
@@ -214,5 +202,15 @@ if (!isDedicated) then { //Player commands
 		10,
 		false
 	];
-	
 };
+
+//Implement Launching Sequence. Assign Eventhandler on Unloading
+_container addEventHandler ["CargoUnloaded", {
+	params ["_parent", "_cargo"];
+	//Remove Assigned Actions to _parent for this pallet
+	private _actions = _cargo getVariable ["RD_loadedAction",[]];
+	if (count _actions > 0) then {{_parent removeAction _x;} forEach _actions;};
+	
+	//Launching Sequence
+	_this spawn RapidDragon_fnc_launch;
+}];
