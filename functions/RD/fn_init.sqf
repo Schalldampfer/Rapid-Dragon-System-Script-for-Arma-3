@@ -116,6 +116,7 @@ _container setVariable ["objID",_objID36str,false];
 if (!isDedicated) then { //Player commands
 	//Initial Parameters
 	
+	//Targeting command
 	_container addEventHandler ["CargoLoaded", {
 		params ["_parent", "_cargo"];
 		//Add targeting actions (plane)
