@@ -43,6 +43,7 @@ while {isNull missileTarget _missile} do { //Until missile's own guidance system
 	_dirTo = _missile getDir _target;
 	_pitchTo = [getPos _missile,_target] call RapidDragon_fnc_pitchtoTgt;
 	//hintSilent format["Dir:%1  DirTo:%2 Pitch:%3 PitchTo:%4",_dir,_dirTo, _pitch, _pitchTo];
+	if (_height > _heightTo * 2) then {_dirTo = _dir;}; //Don't change course untill getting low altitude
 	
 	//Change mode  distance
 	//<2km - Search for ships.
@@ -63,6 +64,7 @@ while {isNull missileTarget _missile} do { //Until missile's own guidance system
 				_target_ship = _targets selectRandomWeighted _weight;
 				//systemChat format["Target: %2 %1",_target_ship, _weight];
 				
+				//Pop-up
 				if (_heightTo < 75) then {_heightTo = 75 + random (15);}; //pop-up once. ToDo:Only do this in ASM mode
 			};
 		};
@@ -72,8 +74,8 @@ while {isNull missileTarget _missile} do { //Until missile's own guidance system
 		};
 	};
 	
-	//>250m - Cruise. Adjust pitch
-	if (_missile distance _target > 250) then { //Cruising. follow terrain
+	//>250m - Cruise. Adjust pitch to follow Terrain
+	if (_missile distance _target > 250) then {
 		_pitchTo = -45 * ((((_height-_heightTo)/_heightTo ) min 1) max -1);
  	};
 	
@@ -81,7 +83,7 @@ while {isNull missileTarget _missile} do { //Until missile's own guidance system
 	private _diffDir = _dirTo - _dir;
 	if (_diffDir > 180) then {_diffDir= _diffDir - 360};
 	if (_diffDir < -180) then {_diffDir= _diffDir + 360};
-	if(abs(_diffDir)>5) then {_dir = _dir + _diffDir/4;};
+	if(abs(_diffDir)>5) then {_dir = _dir + _diffDir/5;};
 	if(abs(_diffDir)>0) then {_dir = _dir + _diffDir/abs(_diffDir);};
 	_missile setDir _dir;
 	
